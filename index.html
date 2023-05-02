@@ -1,91 +1,949 @@
-<!-- Content-Type: text/html
-Access-Control-Allow-Origin: *
--->
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title></title>
-	<!-- <meta http-equiv="Content-Security-Policy" content="script-src * 'unsafe-inline'" /> -->
-	<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://dominioconfianza1.com https://dominioconfianza2.com"> -->
-	<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://drive.google.com *;"> -->
-	<!-- <meta http-equiv="Content-Security-Policy" content="script-src * 'self' https://drive.google.com; https://code.jquery.com; 'unsafe-inline'"> -->
-	<!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://code.jquery.com/jquery-3.6.0.min.js"> -->
-
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
-	<style type="text/css">
-	body{
-		background: #0022BB;
-		color: white;
-		margin: 0;
-		padding: 0;
-		/*font-family: 'Montserrat', sans-serif;*/
-		font-family: 'Open Sans', sans-serif;
-	}
-</style>
-<script>
-		// document.cookie = "AC-C=ac-c;expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/;SameSite=Lax";
-		// document.cookie = "promo_shown=1; Max-Age=2600000; SameSite=None; Secure"
+	<head>
+		<meta charset="utf-8">
+		<title>DJ HAROLD</title>
+		<!-- Description, Keywords and Author -->
+		<meta name="description" content="Your description">
+		<meta name="keywords" content="Your,Keywords">
+		<meta name="author" content="HimanshuGupta">
 		
-		// alert("Función primera")
-
-		function setCookie(name, value, days) {
-			alert("Esto desde el setcookie")
-			let expires = "";
-			if (days) {
-				const date = new Date();
-				date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-				expires = "; expires=" + date.toUTCString();
-			}
-			document.cookie = name + "=" + (value || "")  + expires + "; SameSite=None; Secure; path=/";
-		}
-
-		function saludo(){
-			// alert("TE saludo");
-			document.write("DEsde javascrupt");
-		}
-
-		// setCookie("miCookie", "miValor", 30);
-</script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<!-- <script src="https://drive.google.com/uc?export=view&id=1HM6x5OzCxfU6t_yXYzuIMCTxPwu0NcIr"></script> -->
-<script src="https://drive.google.com/uc?export=view&id=1HM6x5OzCxfU6t_yXYzuIMCTxPwu0NcIr"  ></script>
-
-</head>
-
-<!-- <script src="https://drive.google.com/file/d/1LTm1_Mv8gRf64NfuwELHnaTO_aF6DS5_/view?usp=share_link" type="text/javascript"></script> -->
-
-<body>
-	Hola
-
-	Que pasa a cá más nada <br>
-	hereas disregard and contempt for human rights have resulted
-	<!-- <button onclick="saludo()">JOJO</button> -->
-	<div id="uno"></div>
-
-	<button id="boton">Press</button>
-	<div id="lienzo" style="height:100px;width: 500px;background-color: yellow;">
-
-
-		<script type="text/javascript">
-
-	// $("#uno").text("Esto desde jquery")
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Styles -->
+		<!-- Bootstrap CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">	
+		<!-- Animate CSS -->
+		<link href="css/animate.min.css" rel="stylesheet">
+		<!-- Basic stylesheet -->
+		<link rel="stylesheet" href="css/owl.carousel.css">
+		<!-- Font awesome CSS -->
+		<link href="css/font-awesome.min.css" rel="stylesheet">		
+		<!-- Custom CSS -->
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/style-color.css" rel="stylesheet">
+		
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="img/logo/favicon.ico">
+	</head>
 	
-</script>
-<!-- <img src="https://drive.google.com/uc?export=view&id=1paDQtNgGXh5lsQysgu4lToBc5fJZ8jis" style="height:100px;width:100px"></img> -->
-<img src="https://drive.google.com/uc?export=view&id=1paDQtNgGXh5lsQysgu4lToBc5fJZ8jis" style="height:100px;width:100px"></img>
-<!-- https://drive.google.com/file/d/1paDQtNgGXh5lsQysgu4lToBc5fJZ8jis/view?usp=share_link -->
-<div id="externo"></div>
+	<body>
+		
+		<!-- modal for booking ticket form -->
+		<div class="modal fade" id="bookTicket" tabindex="-1" role="dialog" aria-labelledby="BookTicket">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Name of The Event &nbsp; <small><span class="label label-success">Available</span> &nbsp; <span class="label label-danger">Not Available</span></small></h4>
+					</div>
+					<!-- form for events ticket booking -->
+					<form>
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="exampleInputEmail1">Email</label>
+								<input type="email" class="form-control" id="exampleInputEmail1" placeholder="example@mail.com">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputContact">Contact</label>
+								<input type="text" class="form-control" id="exampleInputContact" placeholder="+91 55 5555 5555">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputSeats">Number of Tickets</label>
+								<select class="form-control" id="exampleInputSeats">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox"> I accept the Terms of Service
+								</label>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<!-- link to payment gatway here -->
+							<button type="button" class="btn btn-primary">Book Now</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<!-- wrapper -->
+		<div class="wrapper" id="home">
+		
+			<!-- header area -->
+			<header>
+				<!-- secondary menu -->
+				<nav class="secondary-menu">
+					<div class="container">
+						<!-- secondary menu left link area -->
+						<div class="sm-left">
+							<a href="https://api.whatsapp.com/send?phone=51997481346" target="_blank">
+							<strong>Whatsapp</strong>:&nbsp; <a href="#">+51 997 481 346</a>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+							<strong>E-mail</strong>:&nbsp; <a href="#">dj_harold_orellana@outlook.com</a>
+						</div>
+						<!-- secondary menu right link area -->
+						<div class="sm-right">
+							<!-- social link -->
+							<div class="sm-social-link">
+								<a class="h-facebook" href="https://www.facebook.com/Harold.Orellana" target="_blank"><i class="fa fa-facebook"></i></a>
+								<a class="h-twitter" href="https://www.mixcloud.com/dj-harold" target="_blank"><i class="fa fa-mixcloud"></i></a>
+								<a class="h-google" href="https://www.youtube.com/channel/UCBw7f_2XeEr3jOdilY6LXPA" target="_blank"><i class="fa fa-youtube"></i></a>
+								<a class="h-linkedin" href="https:/soundcloud.com/show_lurigan" target="_blank"><i class="fa fa-soundcloud"></i></a>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</nav>
+				<!-- primary menu -->
+				<nav class="navbar navbar-fixed-top navbar-default">
+					<div class="container">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<!-- logo area -->
+							<a class="navbar-brand" href="#home">
+								<!-- logo image -->
+								<img class="img-responsive" src="img/logo/logo.png" alt="" />
+							</a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="#latestalbum">MIXES</a></li>
+								<li><a href="#featuredalbum">APTITUDES</a></li>
+								<li><a href="#joinus">ACERCA DE MI</a></li>
+								<li><a href="#portfolio">FOTOS</a></li>
+								<li><a href="#events">VIDEOS</a></li>
+								<!-- <li><a href="#team">Redes Sociales</a></li> -->
+								<li><a href="#contact">CONTACTO</a></li>
+							</ul>
+						</div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
+				</nav>
+			</header>
+			<!--/ header end -->
+			
+			<!-- banner area -->
+			<div class="banner" >
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<img src="img/banner/b1.jpg" alt="...">
+							<div class="container">
+								<!-- banner caption -->
+								<div class="carousel-caption slide-one">
+									<!-- heading -->
+									<h2 class="animated fadeInLeftBig" style="background-color: black; opacity: 0.1;"><i class="fa fa-music"></i> DJ, VJ, Sonidista, Productor</h2>
+									<!-- paragraph -->
+									<h3 class="animated fadeInRightBig" style="background-color: black;">Con conocimientos de  audiovisuales y músico autodidacta</h3>
+									<!-- button -->
+									<!-- <a href="#" class="animated fadeIn btn btn-theme">Download Here</a> -->
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/banner/b2.jpg" alt="...">
+							<div class="container">
+								<!-- banner caption -->
+								<div class="carousel-caption slide-two">
+									<!-- heading -->
+									<h2 class="animated fadeInLeftBig" style="background-color: black; opacity: 0.1;"><i class="fa fa-headphones"></i> Más de 10 años</h2>
+									<!-- paragraph -->
+									<h3 class="animated fadeInRightBig" style="background-color: black; opacity: 0.1;">Experiencia y conocimiento de diversos géneros músicales y público variado</h3>
+									<!-- button -->
+									<!-- <a href="#" class="animated fadeIn btn btn-theme">Listen Now</a> -->
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Controls -->
+					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+						<span class="fa fa-arrow-left" aria-hidden="true"></span>
+					</a>
+					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+						<span class="fa fa-arrow-right" aria-hidden="true"></span>
+					</a>
+				</div>
+			</div>
+			<!--/ banner end -->
+			
+			<!-- block for animate navigation menu -->
+			<div class="nav-animate"></div>
+			
+			<!-- Hero block area -->
+			<div id="latestalbum" class="hero pad">
+				<div class="container">
+					<!-- hero content -->
+					<div class="hero-content ">
+						<!-- heading -->
+						<h2>Mixes</h2>
+						<hr>
+						<!-- paragraph -->
+						<p><strong class="theme-color"></strong>Lista de algunos mixes propios de géneros tan variados como el Rock, Electrónica, Urbano, Pop, entre otros
+							<br><h4>
+							<strong class="theme-color"><i class="fa fa-headphones"></i>  Presione play para escuchar  <i class="fa fa-headphones"></i></strong></p>
+						</h4>
+						<!-- <strong class="theme-color"><i class="fa fa-facebook"></i></strong> -->
+						<!-- <p>We sing the best <strong class="theme-color">Songs</strong> and now we control the world best <strong class="theme-color">Music</strong>.</p> -->
+					</div>
+					<!-- hero play list -->
+					<div class="hero-playlist">
+						<div class="row">
+							
+							<div >
+								<!-- play list -->
+								<div class="playlist-content">
+									<ul class="list-unstyled">
+										<div class=row>
+										<li class="playlist-number" class="col-md-12 col-sm-12">
+											<iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fdj-harold%2Fmix-urban-reguet%C3%B3n-pop%2F" frameborder="0" ></iframe>
+											<!-- song information -->
+											<div class="song-info">
+												<!-- song title -->
+												<h4>Mix de canciones populares de género Urbano, reggaeton y pop del año 20,21 y 22 </h4>
+												<!-- <p><strong>Album</strong>: Title &nbsp;|&nbsp; <strong>Type</strong>: Rock &nbsp;|&nbsp; <strong>Singer</strong>: Dawn</p> -->
+											</div>
+											<!-- music icon -->
+											<div class="music-icon">
+												<!-- <a href="#"><i class="fa fa-play"></i></a>
+												<a href="#"><i class="fa fa-pause"></i></a> -->
+											</div>
+											<div class="clearfix"></div>
+										</li>
+										<li class="playlist-number" class="col-md-6 col-sm-6">
+											<iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fdj-harold%2Fmix-tech-house%2F" frameborder="0" ></iframe>
+											<!-- song information -->
+											<div class="song-info">
+												<!-- song title -->
+												<h4>Mix de música House y Tech-House</h4>
+												
+											</div>
+											<!-- music icon -->
+											<div class="music-icon">
+												
+											</div>
+											<div class="clearfix"></div>
+										</li>
+										
+										<li class="playlist-number" class="col-md-6 col-sm-6">
+											<iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fdj-harold%2Fmix-rock-en-espa%C3%B1ol%2F" frameborder="0" ></iframe>
+											<!-- song information -->
+											<div class="song-info">
+												<!-- song title -->
+												<h4>Mix de selección de algunos de los mejores éxitos del rock en español que marcaron época</h4>
+												
+											</div>
+											<!-- music icon -->
+											<div class="music-icon">
+												
+											</div>
+											<div class="clearfix"></div>
+										</li>
+										<li class="playlist-number" class="col-md-6 col-sm-6">
+											<iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fdj-harold%2Fmix-fiesta-2018%2F" frameborder="0" ></iframe>
+											<!-- song information -->
+											<div class="song-info">
+												<!-- song title -->
+												<h4>Mix variado de cánciones populares en fiestas del año 2018 </h4>
+												
+											</div>
+											<!-- music icon -->
+											<div class="music-icon">
+												<!-- <a href="#"><i class="fa fa-play"></i></a>
+												<a href="#"><i class="fa fa-pause"></i></a> -->
+											</div>
+											<div class="clearfix"></div>
+										</li>
+									
+										
+										<li class="playlist-number" class="col-md-6 col-sm-6">
+											<iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fdj-harold%2Fmix-rock-ingl%C3%A9s-80s-90s%2F" frameborder="0" ></iframe>
+											<!-- song information -->
+											<div class="song-info">
+												<!-- song title -->
+												<h4>Lo mejor del rock en inglés de los 80's y 90's</h4>
+												
+											</div>
+											
+										</li>
+
+										<li class="playlist-number" class="col-md-6 col-sm-6">
+											<iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fdj-harold%2Fmix-hardrock-alternativo-dj-harold%2F" frameborder="0" ></iframe>
+											<!-- song information -->
+											<div class="song-info">
+												<!-- song title -->
+												<h4>Mix de canciones Rock Pesado o Hardrock que marcaron época</h4>
+												
+											</div>
+											<!-- music icon -->
+											
+											<div class="clearfix"></div>
+										</li>
+											
+										<li class="playlist-number" class="col-md-6 col-sm-6">
+												<iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?	hide_cover=1&feed=%2Fdj-harold%2Fmix-clasic-rock-rock-n-roll-dj-harold%2F" frameborder="0" ></iframe>
+											<!-- song information -->
+											<div class="song-info">
+												<!-- song title -->
+												<h4>Mix del mejor Rock Clásico y Rock and Roll, desde los 50's hasta siempre, canciones que nunca pasarán de moda </h4>
+												
+											</div>
+											<!-- music icon -->
+											
+											<div class="clearfix"></div>
+										</li>
+										<li class="playlist-number" class="col-md-6 col-sm-6">
+												<iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fdj-harold%2Fmix-edm-dj-harold%2F" frameborder="0" ></iframe>
+											<!-- song information -->
+											<div class="song-info">
+												<!-- song title -->
+												<h4>Mix de canciones Dance, EDM y Pop que pusieron a bailar en fiestas y festivales en la década 2010's</h4>
+												
+											</div>
+											<!-- music icon -->
+										
+											<div class="clearfix"></div>
+										</li>
+										<li class="playlist-number" class="col-md-6 col-sm-6">
+												<iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fdj-harold%2Fmix-anglo-pop-dance-90s-y-2000s%2F" frameborder="0" ></iframe>
+											<!-- song information -->
+											<div class="song-info">
+												<!-- song title -->
+												<h4>Mix con los mejor del pop y el dance de los 90's y 2000's</h4>
+												
+											</div>
+											<!-- music icon -->
+											
+											<div class="clearfix"></div>
+										</li>
+									
+										<li class="playlist-number" class="col-md-6 col-sm-6">
+												<iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fdj-harold%2Fmix-disco-funk%2F" frameborder="0" ></iframe>
+											<!-- song information -->
+											<div class="song-info">
+												<!-- song title -->
+												<h4>Mix con clásicos del Funk y música Disco, géneros de gran influencia en el hip hop, house, electrónica, pop, etc </h4>
+												
+											</div>
+											<!-- music icon -->
+											
+											<div class="clearfix"></div>
+										</li>
+					
+					
+					
+
+				<!-- 	<iframe title="vimeo-player" src="https://player.vimeo.com/video/142406109?h=be8a513134" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+					<iframe src="https://player.vimeo.com/video/142406109?h=be8a513134" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe> -->
 
 
-<!-- <script src="https://drive.google.com/uc?export=download&id=1LTm1_Mv8gRf64NfuwELHnaTO_aF6DS5_" ></script> -->
+										</div>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--/ hero end -->
+			
+			<!-- promo -->
+			<div class="promo parallax-one pad">
+				<div class="container">
+					<!-- promo element -->
+					<div class="promo-element ">
+						<!-- heading -->
+						<!-- <h3>Music An Art...</h3> -->
+						<!-- paragraph -->
+						<!-- <p>Music is an art form and cultural activity whose medium is sound organized in time. The common elements of music are <strong>pitch</strong>, <strong>rhythm</strong>, <strong>dynamics</strong> and the sonic qualities of <strong>timbre</strong> and <strong>texture</strong>.</p> -->
+						<!-- link -->
+						<!-- <a class="promo-link" href="#"><i class="fa fa-play-circle"></i></a> -->
+						<h3>Dj Harold</h3>
+						<!-- paragraph -->
+						<p> Soy Dj, Vj, sonidista y productor musical con más de 10 años de trayectoria tocando en diferentes tipos de eventos, bares y discotecas y con todo tipo de público de diversas edades y gustos musicales.</p>
+						<!-- link -->
+						<!-- <a class="promo-link" href="#"><i class="fa fa-play-circle"></i></a> -->
+					</div>
+				</div>
+			</div>
+			<!--/ promo end -->
+			
+			<!-- featured abbum -->
+			<div class="featured pad" id="featuredalbum">
+				<div class="container">
+					<!-- default heading -->
+					<div class="default-heading">
+						<!-- heading -->
+						<h2>APTITUDES</h2>
+					</div>
+					<!-- featured album elements -->
+					<div class="featured-element">
+						<div class="row">
+							<div class="col-md-4 col-sm-6">
+								<!-- featured item -->
+								<div class="featured-item ">
+									<!-- image container -->
+									<div class="figure">
+										<!-- image -->
+										<img class="img-responsive" src="img/featured/1.jpg" alt="" />
+										<!-- paragraph -->
+										<!--  -->
+									</div>
+									<!-- featured information -->
+									<div class="featured-item-info">
+										<!-- featured title -->
+										<h4>Home Studio</h4>
+										<!-- horizontal line -->
+										<hr />
+										<!-- some responce from social medial or web likes -->
+										<!-- <p>Estudio casero  sdk laksdj  aldskjal  ajslkd  jkaslda sd jklasdj </p> -->
+										<!-- <p>1024+ <span class="label label-theme">Like</span> &nbsp;&nbsp; 825+ <span class="label label-theme">Love</span></p> -->
+										
+										<p>Home Studio o estudio casero propio con el cual realizo mixes y remixes.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6">
+								<!-- featured item -->
+								<div class="featured-item ">
+									<!-- image container -->
+									<div class="figure">
+										<!-- image -->
+										<img class="img-responsive" src="img/featured/2.jpg" alt="" />
+										<!-- paragraph -->
+										
+									</div>
+									<!-- featured information -->
+									<div class="featured-item-info">
+										<!-- featured title -->
+										<h4>Sonidista</h4>
+										<!-- horizontal line -->
+										<hr />
+										<!-- some responce from social medial or web likes -->
+										<p>Experiencia en manejo de diversas consolas y controles de sonido para eventos</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6">
+								<!-- featured item -->
+								<div class="featured-item ">
+									<!-- image container -->
+									<div class="figure">
+										<!-- image -->
+										<img class="img-responsive" src="img/featured/3.jpg" alt="" />
+										<!-- paragraph -->
+										
+									</div>
+									<!-- featured information -->
+									<div class="featured-item-info">
+										<!-- featured title -->
+										<h4>Tornamesas</h4>
+										<!-- horizontal line -->
+										<hr />
+										<!-- some responce from social medial or web likes -->
+										<p>Manejo de turntables o tornamesas clásicas para realizar mezclas en vinilo</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6">
+								<!-- featured item -->
+								<div class="featured-item ">
+									<!-- image container -->
+									<div class="figure">
+										<!-- image -->
+										<img class="img-responsive" src="img/featured/6.jpg" alt="" />
+										<!-- paragraph -->
+										
+									</div>
+									<!-- featured information -->
+									<div class="featured-item-info">
+										<!-- featured title -->
+										<h4>Maquinas DJs</h4>
+										<!-- horizontal line -->
+										<hr />
+										<!-- some responce from social medial or web likes -->
+										<p>Manejo de gran variedad de máquinas DJ, tanto modelos clásicos como actuales</p>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-md-4 col-sm-6">
+								<!-- featured item -->
+								<div class="featured-item ">
+									<!-- image container -->
+									<div class="figure">
+										<!-- image -->
+										<img class="img-responsive" src="img/featured/5.jpg" alt="" />
+										<!-- paragraph -->
+										
+									</div>
+									<!-- featured information -->
+									<div class="featured-item-info">
+										<!-- featured title -->
+										<h4>VJ - Audiovisuales</h4>
+										<!-- horizontal line -->
+										<hr />
+										<!-- some responce from social medial or web likes -->
+										<p>
+											Manejo de softwares VJ y visuales, para proyecciones, mappings y art performace
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6">
+								<!-- featured item -->
+								<div class="featured-item ">
+									<!-- image container -->
+									<div class="figure">
+										<!-- image -->
+										<img class="img-responsive" src="img/featured/4.jpg" alt="" />
+										<!-- paragraph -->
+										
+									</div>
+									<!-- featured information -->
+									<div class="featured-item-info">
+										<!-- featured title -->
+										<h4>Club de los syntes</h4>
+										<!-- horizontal line -->
+										<hr />
+										<!-- some responce from social medial or web likes -->
+										<p>Participación del conocido club de los syntes, club de música electrónica y experimental</p>
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- features end -->
+			
+			<!-- call to action -->
+			<div class="cta parallax-one pad">
+				<div class="container">
+					<!-- cta element -->
+					<!-- <div class="cta-element ">
+						<div class="row"> -->
+							<!-- <div class="col-md-12 col-sm-12"> -->
+								<!-- heading -->
+								<!-- <h3>Melodi, A Fully Rock Album Pro</h3> -->
+								<!-- paragraph -->
+							<!-- 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim sectetur adipiscing elit, sed do eiusmod tempoad minim veniam consequat.</p> -->
+								<!-- <p>Si quieres un DJ</p>
+								<p>Si quieres un sonid</p> -->
 
-<!-- <video controls="controls"/> 
-	<source src="2.mp4" type="video/mp4"> 
-	</video>  -->
-	<script src="jas.js"></script>
-</div>
-</body>
+							<!-- </div> -->
+							<!-- <div class="col-md-3 col-sm-4">
+								<div class="cta-btn text-center"> -->
+									<!-- purchase now button -->
+									<!-- <a href="#" class="btn btn-default btn-lg">Download Now</a> -->
+								<!-- </div> -->
+							<!-- </div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--/ cta end -->
+			
+			<!-- work with us -->
+			<div class="work-with-us pad" id="joinus">
+				<div class="container">
+					<!-- default heading -->
+					<div class="default-heading">
+						<!-- heading -->
+						<h2>Acerca de mí</h2>
+					</div>
+					<!-- why work with us content -->
+					<div class="why-content">
+						<!-- paragraph -->
+						<p class="why-message">Respecto a mis conocimientos y experiencia</p>
+						<div class="row">
+							<div class="col-md-3 col-sm-6">
+								<!-- why work with us item -->
+								<div class="why-item  delay-one">
+									<span class="why-number">1</span>
+									<!-- paragraph -->
+									<p>He tocado ya sea como Dj residente o invitado en diversos locales como el Old Pub (Miraflores), Cholo Art fun ( Barranco), Etnias (Lima), Kurda (SJL), Hooligans (Lince) entre otros, aparte de eventos.</p>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<!-- why work with us item -->
+								<div class="why-item  delay-two">
+									<span class="why-number">2</span>
+									<!-- paragraph -->
+									<p>He trabajado en cabina como sonidista para diversas bandas, orquestas de salsa, djs internacionales y también musicalizando exposiciones, fiestas temáticas y eventos corporativos.</p>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<!-- why work with us item -->
+								<div class="why-item  delay-three">
+									<span class="why-number">3</span>
+									<!-- paragraph -->
+									<p>Puedo crear experiencias audiovisuales mediante el manejode luces con DMX, mezcla de videos musicales, mappings de cabinas y ambientes, creación de escenas interactivas para activaciones y art performace.</p>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<!-- why work with us item -->
+								<div class="why-item  delay-four">
+									<span class="why-number">4</span>
+									<!-- paragraph -->
+									<p>Soy músico autodidacta; y a la vez técnico en sistemas, aficionado al arte moderno y a la tecnología lo que me lleva a estar en constante actualización y disposición a experimentar con nuevas formas tecnológicas artístico-musicales.  </p>
+								</div>
+							</div>
+						</div>
+						<!-- apply button -->
+					<!-- 	<div class="apply-btn">
+					
+							<a class="btn btn-lg btn-theme" href="#">Join Now</a>
+						</div> -->
+					</div>
+				</div>
+			</div>
+			<!--/ end work with us -->
+			
+			<!-- news letter -->
+	
+			<!-- news letter end -->
+			
+			<div class="portfolio pad" id="portfolio">
+				<div>
+					<!-- default heading -->
+					<div class="default-heading">
+						<!-- heading -->
+						<h2>Galería</h2>
+					</div>
+				</div>
+				<!-- portfolio -->
+				<div class="portfolio-content" id="portfolioOwl">
+					<div class="item">
+						<!-- item image -->
+						<img class="img-responsive" src="img/portfolio/1.jpg" alt="">
+						<!-- transparent background -->
+						<!-- <div class="p-transparent"></div> -->
+						<!-- on mouse hover details -->
+						<!--  -->
+					</div>
+					<div class="item">
+						<!-- item image -->
+						<img class="img-responsive" src="img/portfolio/2.jpg" alt="">
+						<!-- transparent background -->
+						
+						<!-- on mouse hover details -->
+						
+					</div>
+					<div class="item">
+						<!-- item image -->
+						<img class="img-responsive" src="img/portfolio/3.jpg" alt="">
+						<!-- transparent background -->
+						
+						<!-- on mouse hover details -->
+						
+					</div>
+					<div class="item">
+						<!-- item image -->
+						<img class="img-responsive" src="img/portfolio/4.jpg" alt="">
+						<!-- transparent background -->
+						
+						<!-- on mouse hover details -->
+						
+					</div>
+					<div class="item">
+						<!-- item image -->
+						<img class="img-responsive" src="img/portfolio/5.jpg" alt="">
+						<!-- transparent background -->
+						
+						<!-- on mouse hover details -->
+						
+					</div>
+					<div class="item">
+						<!-- item image -->
+						<img class="img-responsive" src="img/portfolio/6.jpg" alt="">
+						<!-- transparent background -->
+						
+						<!-- on mouse hover details -->
+					
+					</div>
+					<div class="item">
+						<!-- item image -->
+						<img class="img-responsive" src="img/portfolio/7.jpg" alt="">
+						<!-- transparent background -->
+						
+						<!-- on mouse hover details -->
+					
+					</div>
+					
+				</div>
+				<!-- <div class="text-center">
+					<a href="#" class="btn btn-lg btn-theme">View more</a>
+				</div> -->
+				<!-- portfolio end -->
+			</div>
+			<!-- work with us end -->
+			
+			<!-- events -->
+			<div class="events parallax-three pad" id="events">
+				<div class="container">
+					<!-- default heading -->
+					<div class="default-heading-shadow">
+						<!-- heading -->
+						<h2>Video Remixes</h2><br>
+						<strong class="theme-color" style="color:white;"><i class="fa fa-play-circle-o"></i >  Presione play para ver  <i class="fa fa-play-circle-o"></i></strong></p>
+					</div>
+					<!-- events element -->
+					<div class="events-element">
+						<div class="row">
+							<div class="col-md-6 col-sm-6">
+								<!-- event item -->
+								<div class="events-item ">
+									
+									
+									<div class="figure" >
+										<video class="img-responsive"  controls="controls"/> 
+
+											<source src="1.mp4" type="video/mp4"> 
+										</video> 
+										
+										
+									</div>
+									<!-- event information -->
+									<div class="event-info">
+										<!-- event title -->
+										<h3>Life Performance</h3>
+										<!-- horizontal line --><hr />
+										<!-- paragraph -->
+										<!-- <p>Es el estilo de performance en el cual se pude remixear un track en vivo, una muestra que hay, en este video cree un Mashup(que es el acto de fusionar los instrumentos de canciones tan diversas creando un tema totalmente nuevo</p> -->
+										<p>Live Performace es el acto mediante el cual un Dj realiza remixes en vivo al instante. En este video realizo un Mashup que es el acto de fusionar los instrumentos de canciones tan diversas creando un tema totalmente nuevo. </p>
+										<!-- buy ticket button link -->
+										<a href="https://youtu.be/142_UVbtapo" target="_blank">
+										<button  class="btn btn-lg btn-theme"  >Ver en Youtube</button></a>
+										
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<!-- event item -->
+								<div class="events-item ">
+									<!-- image container -->
+									<div class="figure">
+										<!-- event date -->
+										<video class="img-responsive"  controls="controls"/> 
+
+											<source src="2.mp4" type="video/mp4"> 
+										</video> 
+
+									</div>
+									<!-- event information -->
+									<div class="event-info">
+										<!-- event title -->
+										<h3>Mashup Rock & Hip Hop</h3>
+										<!-- horizontal line --><hr />
+										<!-- paragraph -->
+										<p>Video de mi canal en Vimeo (Dj Harold - DazMash) en el que mezclo tanto el audio como los videos respectivos de canciones de bandas como Led Zeppelin como Rage Against de Machine con raperos como Notorious BIG y Beastie Boys.</p>
+										<!-- buy ticket button link -->
+										<a href="https://vimeo.com/dazmash" target="_blank" ><button  class="btn btn-lg btn-theme" data-toggle="modal" >Ver en Vimeo</button></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<!-- event item -->
+								<div class="events-item ">
+									<!-- image container -->
+									<div class="figure">
+										<!-- event date -->
+										<video class="img-responsive"  controls="controls"/> 
+
+											<source src="3.mp4" type="video/mp4"> 
+										</video> 
+									</div>
+									<!-- event information -->
+									<div class="event-info">
+										<!-- event title -->
+										<h3>Mashup Rockero</h3>
+										<!-- horizontal line --><hr />
+										<!-- paragraph -->
+										<p>Video de mi canal Youtube Dj Harold - Show Lurigan, es un mashup rockero en el fusiono audio y video de canciones de bandas legendarias en la historia del rock como Los rolling Stones, Ac DC y Guns and Roses.</p>
+										<!-- buy ticket button link -->
+										
+											<a href="https://youtu.be/XhFW_U69RAY" target="_blank" >
+										<button  class="btn btn-lg btn-theme" data-toggle="modal" >Ver en Youtube</button></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<!-- event item -->
+								<div class="events-item ">
+									<!-- image container -->
+									<div class="figure">
+										<!-- event date -->
+										<video class="img-responsive"  controls="controls"/> 
+
+											<source src="4.mp4" type="video/mp4"> 
+										</video> 
+									</div>
+									<!-- event information -->
+									<div class="event-info">
+										<!-- event title -->
+										<h3>Mashup Pop</h3>
+										<!-- horizontal line --><hr />
+										<!-- paragraph -->
+										<p>Video de mi canal Vimeo (Dj Harold - DazMash) en el mezclo audio y video de canciones populares de la decada 2010 de  Pop electrónico con las vocales de la famosa canción Wonderwall del grupo Oasis, haciendo que sus melodías se mezclen.</p>
+										<!-- buy ticket button link -->
+										<a href="https://vimeo.com/dazmash" target="_blank" ><button  class="btn btn-lg btn-theme" data-toggle="modal" >Ver en Vimeo</button></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- events end -->
+			
+			<!-- about -->
+			<!--  -->
+			<!-- meet end -->
+			
+			<!-- contact -->
+			<div class="contact pad" id="contact">
+				<div class="container">
+					<!-- default heading -->
+					<div class="default-heading">
+						<!-- heading -->
+						<h2>Contacto</h2>
+					</div>
+					<div class="row">	
+						<div class="col-md-4 col-sm-4">
+							
+							<!-- contact item -->
+							<div class="contact-item ">
+								<!-- big icon -->
+								<i class="fa fa-envelope"></i>
+								<!-- contact details  -->
+								<span class="contact-details" style="color:black"><b>Email</b><br> dj_harold_orellana@outlook.com</span>
+							</div>
+						</div>
+
+						<div class="col-md-4 col-sm-4">
+							<a href="https://api.whatsapp.com/send?phone=51997481346" target="_blank">	
+							<!-- contact item -->
+							<div class="contact-item ">
+								<!-- big icon -->
+								<i class="fa fa-whatsapp"></i>
+								<!-- contact details  -->
+								<span class="contact-details" style="color:black"><b>Whatsapp</b><br>+51 997 481 346</span>
+							</div>
+						</a>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<!-- contact item -->
+							<a href="https://www.facebook.com/Harold.Orellana" target="_blank">
+							<div class="contact-item ">
+								<!-- big icon -->
+								<i class="fa fa-facebook-square"></i>
+								<!-- contact details  -->
+								<span class="contact-details" style="color:black"><b>Facebook Personal</b><br>facebook.com/Harold.Orellana</span>
+							</div>
+						</a>
+						</div>
+						
+					</div>
+					<!-- form content -->
+
+
+					<div class="row">	
+						<div class="col-md-4 col-sm-4">
+							<a href="https://www.youtube.com/channel/UCBw7f_2XeEr3jOdilY6LXPA" target="_blank">
+							<!-- contact item -->
+							<div class="contact-item ">
+								<!-- big icon -->
+								<i class="fa fa-youtube"></i>
+								<!-- contact details  -->
+								<span class="contact-details" style="color:black"><b>Canal Youtube</b><br>Dj Harold - Show Lurigan</span>
+							</div>
+						</a>
+						</div>
+
+						<div class="col-md-4 col-sm-4">
+							<a href="https://www.mixcloud.com/dj-harold" target="_blank">	
+							<!-- contact item -->
+							<div class="contact-item ">
+								<!-- big icon -->
+								<i class="fa fa-mixcloud"></i>
+								<!-- contact details  -->
+								<span class="contact-details" style="color:black"><b>Mixes</b><br> mixcloud.com/dj-harold</span>
+							</div>
+						</a>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<!-- contact item -->
+							<a href="https:/soundcloud.com/show_lurigan" target="_blank"> 	
+							<div class="contact-item ">
+								<!-- big icon -->
+								<i class="fa fa-soundcloud"></i>
+								<!-- contact details  -->
+								<span class="contact-details" style="color:black"><b>Remixes & Mashups</b><br>soundcloud.com/show_lurigan</span>
+							</div>
+							</a>
+						</div>
+						
+					</div>
+
+				</div>
+			</div>
+			<!-- contact end -->
+			
+			<!-- footer -->
+			<footer>
+				<div class="container">
+					<!-- social media links -->
+					<!-- <div class="social">
+						<a class="h-facebook" href="#"><i class="fa fa-facebook"></i></a>
+						<a class="h-google" href="#"><i class="fa fa-google-plus"></i></a>
+						<a class="h-linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+						<a class="h-twitter" href="#"><i class="fa fa-twitter"></i></a>
+					</div> -->
+					<!-- copy right -->
+					<p class="copy-right">&copy; copyright 2022, Todos los derechos reservados</p>
+				</div>
+			</footer>
+			<!-- footer end -->
+			
+			<!-- Scroll to top -->
+			<span class="totop"><a href="#"><i class="fa fa-chevron-up"></i></a></span> 
+			
+		</div>
+		
+		<!-- Javascript files -->
+		<!-- jQuery -->
+		<script src="js/jquery.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- WayPoints JS -->
+		<script src="js/waypoints.min.js"></script>
+		<!-- Include js plugin -->
+		<script src="js/owl.carousel.min.js"></script>
+		<!-- One Page Nav -->
+		<script src="js/jquery.nav.js"></script>
+		<!-- Respond JS for IE8 -->
+		<script src="js/respond.min.js"></script>
+		<!-- HTML5 Support for IE -->
+		<script src="js/html5shiv.js"></script>
+		<!-- Custom JS -->
+		<script src="js/custom.js"></script>
+	</body>	
 </html>
